@@ -43,7 +43,7 @@ public class DiceActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //Toast= petite pop up de texte
-                    Toast.makeText(getApplicationContext(), "Dice value changed to "+b.getText(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Dice value changed to "+b.getText(), Toast.LENGTH_SHORT).show();
 
                     //Je change la couleur du dé roll par la couleur du dé sur lequel on a appuyé
                     buttonRoll.setBackgroundColor(listCol.get(listBut.indexOf(b)));
