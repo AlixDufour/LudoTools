@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //pour lancer DiceActivity pour que je teste vous pouvez supp pour remplacer par menu
-        b  = (Button) findViewById(R.id.b1);
+        b  = (Button) findViewById(R.id.bDés);
 
 
         b.setOnClickListener(new View.OnClickListener() {
