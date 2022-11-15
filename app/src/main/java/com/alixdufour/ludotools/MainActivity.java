@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button b;
+    Button b1, b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +16,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //pour lancer DiceActivity pour que je teste vous pouvez supp pour remplacer par menu
-        b  = (Button) findViewById(R.id.bDés);
+        b1 = (Button) findViewById(R.id.bDés);
+        b2 = (Button) findViewById(R.id.bChrono);
 
 
-        b.setOnClickListener(new View.OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, DiceActivity.class);
+                startActivity(i);
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, ChronoActivity.class);
