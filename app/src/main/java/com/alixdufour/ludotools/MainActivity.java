@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, DiceActivity.class);
+                Intent i = new Intent(MainActivity.this, ChronoActivity.class);
                 startActivity(i);
-
             }
         });
 
