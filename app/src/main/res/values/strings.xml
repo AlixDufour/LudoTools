@@ -9,4 +9,14 @@
     <string name="restart">Restart</string>
     <string name="setFormat">Set Format</string>
     <string name="clearFormat">Clear Format</string>
+    <string name="compteur">+</string>
+    <string name="decompteur">-</string>
+    <string name="temps_de_départ">Temps de départ</string>
+    <string name="reset">Reset</string>
+    <string name="deux_points">:</string>
+    <string name="seconds_ss">ss</string>
+    <string name="minutes_mm">mm</string>
+    <string name="chrono">CHRONO</string>
+    <string name="timer" />
+    <string name="timer1">timer</string>
 </resources>
