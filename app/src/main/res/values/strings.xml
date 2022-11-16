@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">LudoTools</string>
     <string name="roll">Roll</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="chronometerInAndroid">Chronometer In Android</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="restart">Restart</string>
+    <string name="setFormat">Set Format</string>
+    <string name="clearFormat">Clear Format</string>
+    <string name="compteur">+</string>
+    <string name="decompteur">-</string>
+    <string name="temps_de_départ">Temps de départ</string>
+    <string name="reset">Reset</string>
+    <string name="deux_points">:</string>
+    <string name="seconds_ss">ss</string>
+    <string name="minutes_mm">mm</string>
+    <string name="chrono">CHRONO</string>
+    <string name="timer" />
+    <string name="timer1">timer</string>
 </resources>
