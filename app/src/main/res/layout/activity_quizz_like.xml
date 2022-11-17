@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizzLike">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <GridLayout
+            android:id="@+id/playerGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="8"
+            android:columnCount="1"
+            android:layout_weight="4">
+
+
+        </GridLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:layout_weight="17">
+
+            <Button
+                android:id="@+id/bReset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
+                android:text="@string/reset"
+                android:backgroundTint="@color/blue_pastel"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_below="@+id/bReset"
+                android:hint="@string/type_new_player_s_name"
+                android:autofillHints="AUTOFILL_HINT_NAME"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/bAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/editName"
+                android:layout_below="@+id/bReset"
+                android:text="@string/add"
+                android:backgroundTint="@color/green_pastel"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

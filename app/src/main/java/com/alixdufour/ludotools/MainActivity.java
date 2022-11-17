@@ -8,7 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +15,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //pour lancer DiceActivity pour que je teste vous pouvez supp pour remplacer par menu
-        b  = (Button) findViewById(R.id.bDés);
-
+        Button b  = (Button) findViewById(R.id.bDés);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, DiceActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        Button b2 = (Button) findViewById(R.id.bJoueurs);
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, QuizzLike.class);
                 startActivity(i);
 
             }

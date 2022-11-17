@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">LudoTools</string>
     <string name="roll">Roll</string>
+    <string name="add">Add</string>
+    <string name="type_new_player_s_name">Type new player\'s name</string>
+    <string name="reset">Reset</string>
 </resources>
