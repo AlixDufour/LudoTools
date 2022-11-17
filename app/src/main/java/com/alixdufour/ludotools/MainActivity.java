@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button b1, b2;
+    Button b1, b2, b3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         //pour lancer DiceActivity pour que je teste vous pouvez supp pour remplacer par menu
         b1 = (Button) findViewById(R.id.bDés);
         b2 = (Button) findViewById(R.id.bChrono);
+        b3 = (Button) findViewById(R.id.bQuiz);
 
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ScoreQuizActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

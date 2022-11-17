@@ -44,13 +44,13 @@
             android:text="Chronomètre" />
 
         <Button
-            android:id="@+id/bJoueurs"
+            android:id="@+id/bQuiz"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/green_pastel"
-            android:text="Joueurs" />
+            android:text="Score quiz" />
 
         <Button
             android:id="@+id/bParam"
