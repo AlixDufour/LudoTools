@@ -27,6 +27,7 @@ public class DiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dice);
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);
+        TextView resultDiceText = findViewById(R.id.result);
 
         Button bAdd = (Button) findViewById(R.id.bAdd);
         EditText editValue = (EditText) findViewById(R.id.editValue);
@@ -44,7 +45,7 @@ public class DiceActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                bAdd.setEnabled(!s.toString().isEmpty());
+                bAdd.setEnabled(!s.toString().isEmpty() && Integer.parseInt((String) s.toString())!=0);
             }
         });
 
@@ -66,8 +67,8 @@ public class DiceActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Dice Rolled!", Toast.LENGTH_SHORT).show();
 
                 //Affichage du résultat du dé
-                TextView resultDiceText = findViewById(R.id.result);
-                resultDiceText.setText(Integer.toString(rollDice(diceSize)));
+                if (diceSize == 0 ) resultDiceText.setText("0");
+                else  resultDiceText.setText(Integer.toString(rollDice(diceSize)));
             }
         });
 

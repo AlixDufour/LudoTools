@@ -113,9 +113,11 @@
             android:id="@+id/editValue"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="Custom value"
+            android:hint="@string/custom_value"
             android:layout_weight="1"
-            android:inputType="number">
+            android:inputType="number"
+            android:maxLength="6"
+            android:autofillHints="">
         </EditText>
 
         <Button
@@ -125,7 +127,8 @@
             android:layout_marginStart="4dp"
             android:layout_weight="2"
             android:backgroundTint="@color/yellow_pastel"
-            android:text="@string/add">
+            android:text="@string/add"
+            android:textColor="#000000">
         </Button>
     </LinearLayout>
 
