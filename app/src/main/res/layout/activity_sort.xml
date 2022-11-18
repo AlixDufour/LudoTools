@@ -24,14 +24,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Nom" />
 
             <Button
                 android:id="@+id/AddButton"
                 android:layout_width="38dp"
                 android:layout_height="84dp"
                 android:layout_weight="1"
-                android:text="Add"
+                android:text="+"
+                android:textSize="50dp"
                 android:backgroundTint="@color/orange_pastel"/>
 
             <Space
@@ -75,8 +76,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sort"
-                android:backgroundTint="@color/pink_pastel"/>
+                android:backgroundTint="@color/pink_pastel"
+                android:text="Trier" />
 
             <Space
                 android:layout_width="wrap_content"
