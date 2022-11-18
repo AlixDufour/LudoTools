@@ -53,13 +53,13 @@
             android:text="Score quiz" />
 
         <Button
-            android:id="@+id/bParam"
+            android:id="@+id/bJoueur"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/blue_pastel"
-            android:text="Paramètres" />
+            android:text="Joueurs" />
 
 
     </LinearLayout>
