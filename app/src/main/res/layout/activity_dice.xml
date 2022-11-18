@@ -17,8 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_centerInParent="true"
+            android:textAlignment="center"
             android:textSize="100sp"
-            tools:text="1" />
+            tools:text="999999" />
 
         <Button
             android:id="@+id/StartDice"
