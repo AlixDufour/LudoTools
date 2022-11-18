@@ -38,7 +38,7 @@ public class SortActivity extends AppCompatActivity {
                 String text = "";
                 int lenght = player.size();
                 for (int i = 0; i < lenght; i++) {
-                    text += player.get(i) + "\n";
+                    text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
                 nameEntered.setText("");
@@ -59,7 +59,7 @@ public class SortActivity extends AppCompatActivity {
                         i1 = rng.nextInt(lenght);
                     }
                     indice.add(i1);
-                    text += player.get(i1) + "\n";
+                    text += (i+1) + "- " + player.get(i1) + "\n";
                 }
                 nameList.setText(text);
             }
