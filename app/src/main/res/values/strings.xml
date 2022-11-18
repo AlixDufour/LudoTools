@@ -19,4 +19,6 @@
     <string name="chrono">CHRONO</string>
     <string name="timer" />
     <string name="timer1">timer</string>
+    <string name="valeur_personnalis_e">Valeur personnalisée</string>
+    <string name="add">Add</string>
 </resources>

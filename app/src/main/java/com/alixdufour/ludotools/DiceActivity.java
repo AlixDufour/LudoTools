@@ -1,8 +1,11 @@
 package com.alixdufour.ludotools;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,37 @@ public class DiceActivity extends AppCompatActivity {
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);
 
+        Button bAdd = (Button) findViewById(R.id.bAdd);
+        EditText editValue = (EditText) findViewById(R.id.editValue);
+
+        bAdd.setEnabled(false);
+
+        editValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                bAdd.setEnabled(!s.toString().isEmpty());
+            }
+        });
+
+        bAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonRoll.setBackgroundColor(getResources().getColor(R.color.yellow_pastel));
+                int value = Integer.parseInt((String) editValue.getText().toString());
+                diceSize = value;
+                buttonRoll.setText("Roll "+value);
+            }
+        });
+
+
         buttonRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,7 +67,6 @@ public class DiceActivity extends AppCompatActivity {
 
                 //Affichage du résultat du dé
                 TextView resultDiceText = findViewById(R.id.result);
-
                 resultDiceText.setText(Integer.toString(rollDice(diceSize)));
             }
         });
