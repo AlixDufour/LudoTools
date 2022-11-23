@@ -6,49 +6,49 @@
     android:layout_margin="10dp"
     android:gravity="center_vertical"
     >
-        <TextView
-            android:id="@+id/score1"
-            android:layout_width="45dp"
-            android:layout_height="75dp"
-            android:text="0"
-            android:textColor="@android:color/black"
-            android:textSize="40sp"
-            android:gravity="center"
-            />
+    <TextView
+        android:id="@+id/score1"
+        android:layout_width="45dp"
+        android:layout_height="75dp"
+        android:text="0"
+        android:textColor="@android:color/black"
+        android:textSize="40sp"
+        android:gravity="center"
+        />
 
-        <EditText
-            android:id="@+id/joueur1"
-            android:layout_width="160dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="-165dp"
-            android:hint="Joueur 1"
-            android:textColor="@android:color/tab_indicator_text"
-            android:textSize="30sp"
-            android:minWidth="48dp"
-            android:layout_alignEnd="@id/score1"
-            android:gravity="center"
-            />
+    <EditText
+        android:id="@+id/joueur1"
+        android:layout_width="160dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="-165dp"
+        android:hint="Joueur 1"
+        android:textColor="@android:color/tab_indicator_text"
+        android:textSize="30sp"
+        android:minWidth="48dp"
+        android:layout_alignEnd="@id/score1"
+        android:gravity="center"
+        />
 
-        <Button
-            android:id="@+id/add1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginEnd="-80dp"
-            android:backgroundTint="@color/green_pastel"
-            android:text="+1"
-            android:textSize="20sp"
-            android:layout_alignEnd="@id/joueur1"
-            />
+    <Button
+        android:id="@+id/add1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="-80dp"
+        android:backgroundTint="@color/green_pastel"
+        android:text="+1"
+        android:textSize="20sp"
+        android:layout_alignEnd="@id/joueur1"
+        />
 
-        <Button
-            android:id="@+id/sous1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginEnd="-80dp"
-            android:backgroundTint="@color/green_pastel"
-            android:text="-1"
-            android:textSize="20sp"
-            android:layout_alignEnd="@id/add1"
-            />
-    </RelativeLayout>
+    <Button
+        android:id="@+id/sous1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="-80dp"
+        android:backgroundTint="@color/green_pastel"
+        android:text="-1"
+        android:textSize="20sp"
+        android:layout_alignEnd="@id/add1"
+        />
+</RelativeLayout>

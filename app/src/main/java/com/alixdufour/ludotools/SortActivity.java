@@ -1,6 +1,7 @@
 package com.alixdufour.ludotools;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,9 @@ public class SortActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sort);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         buttonAdd = (Button) findViewById(R.id.AddButton);
         buttonSort = (Button) findViewById(R.id.SortButton);

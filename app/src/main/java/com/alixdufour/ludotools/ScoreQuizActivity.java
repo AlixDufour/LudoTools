@@ -3,6 +3,7 @@ package com.alixdufour.ludotools;
 import static com.alixdufour.ludotools.R.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ public class ScoreQuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_score_quiz);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         tab[nb_players - 1] = new quizPlayerBar();
         tab[nb_players - 1].increaseButton = (Button) findViewById(R.id.add1);

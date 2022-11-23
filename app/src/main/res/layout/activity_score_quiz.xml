@@ -9,108 +9,129 @@
     >
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:visibility="visible"
+            app:titleTextColor="@android:color/white"
+            android:backgroundTint="@color/purple_pastel"
+            android:background="@color/purple_pastel">
+        </androidx.appcompat.widget.Toolbar>
 
         <RelativeLayout
-            android:id="@+id/LinearPlayer1"
+            android:id="@+id/relLayout"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_margin="0dp"
-            android:gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             >
-            <TextView
-                android:id="@+id/score1"
-                android:layout_width="45dp"
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="0"
-                android:textColor="@android:color/black"
-                android:textSize="40sp"
-                android:gravity="center"
-                />
+                android:orientation="vertical"
+                android:layout_marginBottom="68dp"
+                android:gravity="center">
+                <RelativeLayout
+                    android:id="@+id/LinearPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    >
+                    <TextView
+                        android:id="@+id/score1"
+                        android:layout_width="45dp"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        android:gravity="center"
+                        />
 
-            <EditText
-                android:id="@+id/joueur1"
-                android:layout_width="160dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="-165dp"
-                android:hint="Joueur 1"
-                android:textColor="@android:color/tab_indicator_text"
-                android:textSize="30sp"
-                android:minWidth="48dp"
-                android:gravity="center"
-                android:layout_alignEnd="@id/score1"
-                />
+                    <EditText
+                        android:id="@+id/joueur1"
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="-165dp"
+                        android:hint="Joueur 1"
+                        android:textColor="@android:color/tab_indicator_text"
+                        android:textSize="30sp"
+                        android:minWidth="48dp"
+                        android:gravity="center"
+                        android:layout_alignEnd="@id/score1"
+                        />
 
-            <Button
-                android:id="@+id/add1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="-80dp"
-                android:backgroundTint="@color/green_pastel"
-                android:text="+1"
-                android:textSize="20sp"
-                android:layout_alignEnd="@id/joueur1"
-                />
+                    <Button
+                        android:id="@+id/add1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="-80dp"
+                        android:backgroundTint="@color/green_pastel"
+                        android:text="+1"
+                        android:textSize="20sp"
+                        android:layout_alignEnd="@id/joueur1"
+                        />
 
-            <Button
-                android:id="@+id/sous1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="-80dp"
-                android:backgroundTint="@color/green_pastel"
-                android:text="-1"
-                android:textSize="20sp"
-                android:layout_alignEnd="@id/add1"
-                />
+                    <Button
+                        android:id="@+id/sous1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="-80dp"
+                        android:backgroundTint="@color/red_pastel"
+                        android:text="-1"
+                        android:textSize="20sp"
+                        android:layout_alignEnd="@id/add1"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearButton"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                >
+
+                <Button
+                    android:id="@+id/addPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/purple_pastel"
+                    android:layout_marginEnd="5dp"
+                    android:text="Ajouter"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    />
+
+                <Button
+                    android:id="@+id/removePlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/purple_700"
+                    android:layout_marginStart="5dp"
+                    android:text="Supprimer"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
         </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearButton"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-
-        <Button
-            android:id="@+id/addPlayer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/green_pastel"
-            android:layout_marginEnd="5dp"
-            android:text="Ajouter"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            />
-
-        <Button
-            android:id="@+id/removePlayer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/green_pastel"
-            android:layout_marginStart="5dp"
-            android:text="Supprimer"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
