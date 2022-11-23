@@ -41,8 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginBottom="68dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_above="@+id/LinearButton">
                 <RelativeLayout
                     android:id="@+id/LinearPlayer1"
                     android:layout_width="match_parent"
