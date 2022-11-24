@@ -23,7 +23,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
     Button addPlayerButton, removePlayerButton;
     quizPlayerBar[] tab = new quizPlayerBar[max_nb_players];
     View[] savedViews = new View[max_nb_players];
-    int nb_players = 1;
+    int nb_players = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,38 +42,20 @@ public class ScoreQuizActivity extends AppCompatActivity {
             }
         });
 
-        tab[nb_players - 1] = new quizPlayerBar();
-        tab[nb_players - 1].increaseButton = (Button) findViewById(R.id.add1);
-        tab[nb_players - 1].reduceButton = (Button) findViewById(id.sous1);
-        tab[nb_players - 1].playerName = (EditText) findViewById(R.id.joueur1);
-        tab[nb_players - 1].scoreText = (TextView) findViewById(R.id.score1);
-        tab[nb_players - 1].valueScore = 0;
         addPlayerButton = (Button) findViewById(id.addPlayer);
         removePlayerButton = (Button) findViewById(id.removePlayer);
 
-        tab[nb_players - 1].setOnClickIncreaseButton();
-        tab[nb_players - 1].setOnClickReduceButton();
-
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
+
+        addPlayerToView(); //Joueur1
 
         addPlayerButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                if(nb_players < max_nb_players) {
-                    nb_players += 1;
-                    View view = inflater.inflate(R.layout.player_quizz, null);
-                    LinearLayout container = (LinearLayout) findViewById(id.linearLayout);
-                    container.addView(view);
-                    tab[nb_players - 1] = new quizPlayerBar(view);
-                    tab[nb_players - 1].setOnClickIncreaseButton();
-                    tab[nb_players - 1].setOnClickReduceButton();
-                    tab[nb_players - 1].setPlayerNameHint(nb_players);
-
-                    savedViews[nb_players - 1] = view;
-                }
+                addPlayerToView();
             }
         });
 
@@ -90,5 +72,23 @@ public class ScoreQuizActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void addPlayerToView(){
+        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(
+                Context.LAYOUT_INFLATER_SERVICE);
+        if(nb_players < max_nb_players) {
+            nb_players += 1;
+            View view = inflater.inflate(R.layout.player_quizz, null);
+            LinearLayout container = (LinearLayout) findViewById(id.linearLayout);
+            container.addView(view);
+            tab[nb_players - 1] = new quizPlayerBar(view);
+            tab[nb_players - 1].setOnClickIncreaseButton();
+            tab[nb_players - 1].setOnClickReduceButton();
+            tab[nb_players - 1].setPlayerNameHint(nb_players);
+
+            savedViews[nb_players - 1] = view;
+        }
+
     }
 }

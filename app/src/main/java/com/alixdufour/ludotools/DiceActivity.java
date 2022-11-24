@@ -109,13 +109,6 @@ public class DiceActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(getApplicationContext(), "onPause called", Toast.LENGTH_LONG).show();
-
-    }
-
     private int rollDice(int size){
         Random rng = new Random();
         return rng.nextInt(size)+1;
