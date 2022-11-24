@@ -13,16 +13,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <include
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:visibility="visible"
-            app:titleTextColor="@android:color/white"
-            android:backgroundTint="@color/purple_pastel"
-            android:background="@color/purple_pastel">
-        </androidx.appcompat.widget.Toolbar>
+            layout="@layout/toolbar">
+        </include>
 
         <RelativeLayout
             android:id="@+id/relLayout"

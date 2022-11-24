@@ -1,11 +1,13 @@
 package com.alixdufour.ludotools;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +30,17 @@ public class DiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dice);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
+        toolbar_text.setText("Dés");
+        ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DiceActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);

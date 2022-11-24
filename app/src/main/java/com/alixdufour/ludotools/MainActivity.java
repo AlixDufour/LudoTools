@@ -6,9 +6,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     Button b1, b2, b3, b4;
@@ -18,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         //pour lancer DiceActivity pour que je teste vous pouvez supp pour remplacer par menu
         b1 = (Button) findViewById(R.id.bDés);

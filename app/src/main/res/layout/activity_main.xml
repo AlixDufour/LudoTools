@@ -11,69 +11,64 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:visibility="visible"
-            app:titleTextColor="@android:color/white"
-            android:backgroundTint="@color/purple_pastel"
-            android:background="@color/purple_pastel"
-            android:layout_marginBottom="24dp"
-            >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-        </androidx.appcompat.widget.Toolbar>
-
-        <Button
-            android:id="@+id/bFichesScore"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/purple_pastel"
-            android:text="Fiches de score" />
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="70dp">
+            <Button
+                android:id="@+id/bFichesScore"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/purple_pastel"
+                android:text="Fiches de score" />
 
-        <Button
-            android:id="@+id/bDés"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/pink_pastel"
-            android:text="Dés" />
+            <Button
+                android:id="@+id/bDés"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/pink_pastel"
+                android:text="Dés" />
 
-        <Button
-            android:id="@+id/bChrono"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/orange_pastel"
-            android:text="Chronomètre" />
+            <Button
+                android:id="@+id/bChrono"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange_pastel"
+                android:text="Chronomètre" />
 
-        <Button
-            android:id="@+id/bQuiz"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/green_pastel"
-            android:text="Score quiz" />
+            <Button
+                android:id="@+id/bQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green_pastel"
+                android:text="Score quiz" />
 
-        <Button
-            android:id="@+id/bJoueur"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/blue_pastel"
-            android:text="Joueurs" />
+            <Button
+                android:id="@+id/bJoueur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_pastel"
+                android:text="Joueurs" />
+        </LinearLayout>
 
 
     </LinearLayout>

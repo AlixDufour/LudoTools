@@ -2,6 +2,7 @@ package com.alixdufour.ludotools;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ChronoActivity extends AppCompatActivity {
@@ -28,7 +30,17 @@ public class ChronoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chrono);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
+        toolbar_text.setText("Gestion du temps");
+        ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ChronoActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         // initiate views
         chronometer = (Chronometer) findViewById(R.id.simpleChronometer);

@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,7 +30,17 @@ public class ScoreQuizActivity extends AppCompatActivity {
         setContentView(layout.activity_score_quiz);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
+        toolbar_text.setText("Score Quizz");
+        ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ScoreQuizActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         tab[nb_players - 1] = new quizPlayerBar();
         tab[nb_players - 1].increaseButton = (Button) findViewById(R.id.add1);

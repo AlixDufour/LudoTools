@@ -3,9 +3,11 @@ package com.alixdufour.ludotools;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +29,17 @@ public class SortActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sort);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
+        toolbar_text.setText("Joueurs");
+        ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SortActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         buttonAdd = (Button) findViewById(R.id.AddButton);
         buttonSort = (Button) findViewById(R.id.SortButton);
