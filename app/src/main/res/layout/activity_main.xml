@@ -41,7 +41,7 @@
                 android:backgroundTint="@color/purple_pastel"
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
-                android:drawableEnd="@drawable/baseline_emoji_events_white_48"
+                android:drawableStart="@drawable/baseline_emoji_events_white_48"
                 android:text="Fiches de score"
                 tools:ignore="NestedWeights" />
 
@@ -54,7 +54,7 @@
                 android:backgroundTint="@color/pink_pastel"
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
-                android:drawableEnd="@drawable/baseline_casino_white_48"
+                android:drawableStart="@drawable/baseline_casino_white_48"
                 android:text="Dés" />
 
             <Button
@@ -66,7 +66,7 @@
                 android:backgroundTint="@color/orange_pastel"
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
-                android:drawableEnd="@drawable/baseline_timer_white_48"
+                android:drawableStart="@drawable/baseline_timer_white_48"
                 android:text="Chronomètre" />
 
             <Button
@@ -78,7 +78,7 @@
                 android:backgroundTint="@color/green_pastel"
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
-                android:drawableEnd="@drawable/baseline_scoreboard_white_48"
+                android:drawableStart="@drawable/baseline_scoreboard_white_48"
                 android:text="Score quiz" />
 
             <Button
@@ -90,7 +90,7 @@
                 android:backgroundTint="@color/blue_pastel"
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
-                android:drawableEnd="@drawable/baseline_people_white_48"
+                android:drawableStart="@drawable/baseline_people_white_48"
                 android:text="Joueurs" />
         </LinearLayout>
 
