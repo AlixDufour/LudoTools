@@ -22,4 +22,5 @@
     <string name="valeur_personnalis_e">Valeur personnalisée</string>
     <string name="add">Add</string>
     <string name="custom_value">Custom value</string>
+    <string name="name">Name</string>
 </resources>
