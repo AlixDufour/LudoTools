@@ -16,14 +16,22 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:src="@drawable/ludo7" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="70dp">
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1">
             <Button
                 android:id="@+id/bFichesScore"
                 android:layout_width="match_parent"
@@ -31,7 +39,11 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_pastel"
-                android:text="Fiches de score" />
+                android:paddingEnd="32dp"
+                android:paddingStart="32dp"
+                android:drawableEnd="@drawable/baseline_emoji_events_white_48"
+                android:text="Fiches de score"
+                tools:ignore="NestedWeights" />
 
             <Button
                 android:id="@+id/bDés"
@@ -40,6 +52,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/pink_pastel"
+                android:paddingEnd="32dp"
+                android:paddingStart="32dp"
+                android:drawableEnd="@drawable/baseline_casino_white_48"
                 android:text="Dés" />
 
             <Button
@@ -49,6 +64,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/orange_pastel"
+                android:paddingEnd="32dp"
+                android:paddingStart="32dp"
+                android:drawableEnd="@drawable/baseline_timer_white_48"
                 android:text="Chronomètre" />
 
             <Button
@@ -58,6 +76,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/green_pastel"
+                android:paddingEnd="32dp"
+                android:paddingStart="32dp"
+                android:drawableEnd="@drawable/baseline_scoreboard_white_48"
                 android:text="Score quiz" />
 
             <Button
@@ -67,6 +88,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/blue_pastel"
+                android:paddingEnd="32dp"
+                android:paddingStart="32dp"
+                android:drawableEnd="@drawable/baseline_people_white_48"
                 android:text="Joueurs" />
         </LinearLayout>
 
