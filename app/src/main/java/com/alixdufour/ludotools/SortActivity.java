@@ -21,6 +21,7 @@ public class SortActivity extends AppCompatActivity {
 
     Button buttonAdd;
     Button buttonSort;
+    Button buttonRemove;
     List player = new ArrayList();
 
     @Override
@@ -43,6 +44,7 @@ public class SortActivity extends AppCompatActivity {
 
         buttonAdd = (Button) findViewById(R.id.AddButton);
         buttonSort = (Button) findViewById(R.id.SortButton);
+        buttonRemove = (Button) findViewById(R.id.RemoveButton);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,7 @@ public class SortActivity extends AppCompatActivity {
                     text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
-                nameEntered.setText("");
+                nameEntered.setText("Joueur " + (lenght + 1));
             }
         });
 
@@ -78,6 +80,23 @@ public class SortActivity extends AppCompatActivity {
                     text += (i+1) + "- " + player.get(i1) + "\n";
                 }
                 nameList.setText(text);
+            }
+        });
+
+        buttonRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView nameEntered = findViewById(R.id.Name);
+                TextView nameList = findViewById(R.id.ListNames);
+                String text = "";
+                int lenght = player.size();
+                player.remove(lenght - 1);
+                lenght = player.size();
+                for (int i = 0; i < lenght; i++) {
+                    text += (i+1) + "- " + player.get(i) + "\n";
+                }
+                nameList.setText(text);
+                nameEntered.setText("Joueur " + (lenght + 1));
             }
         });
     }

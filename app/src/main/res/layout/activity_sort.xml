@@ -30,42 +30,51 @@
 
                 <EditText
                     android:id="@+id/Name"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
                     android:layout_weight="1"
-                    android:hint="@string/name" />
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:text="Joueur 1"
+                    android:textSize="25dp" />
 
                 <Button
                     android:id="@+id/AddButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="Add"
-                    android:backgroundTint="@color/orange_pastel"/>
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/green_pastel"
+                    android:text="+"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/RemoveButton"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red_pastel"
+                    android:text="-"
+                    android:textSize="35dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="396dp"
+                android:layout_height="499dp"
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="68dp"
+                    android:layout_width="35dp"
                     android:layout_height="100dp"
                     android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/ListNames"
-                    android:layout_width="300dp"
-                    android:layout_height="397dp"
-                    android:textColor="@color/black"/>
+                    android:layout_width="370dp"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
             </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="134dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,10 +89,11 @@
                 <Button
                     android:id="@+id/SortButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="72dp"
                     android:layout_weight="1"
-                    android:text="Sort"
-                    android:backgroundTint="@color/pink_pastel"/>
+                    android:backgroundTint="@color/blue_pastel"
+                    android:text="Trier"
+                    android:textSize="25dp" />
 
                 <Space
                     android:layout_width="wrap_content"
