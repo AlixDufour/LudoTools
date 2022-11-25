@@ -1,21 +1,34 @@
 package com.alixdufour.ludotools;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
+import com.alixdufour.ludotools.objects.Dice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class DiceActivity extends AppCompatActivity {
@@ -23,6 +36,9 @@ public class DiceActivity extends AppCompatActivity {
     public int diceSize=6;
     public List<Integer> listCol; //liste des couleurs des boutons
     public List<Button> listBut; //liste des boutons
+    public List<Dice> listDice; //liste des boutons représentant les dés
+    public int nbDice=0;
+    protected int maxDice=6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +61,8 @@ public class DiceActivity extends AppCompatActivity {
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);
         TextView resultDiceText = findViewById(R.id.result);
+
+        Button bReset = (Button) findViewById(R.id.bReset);
 
         Button bAdd = (Button) findViewById(R.id.bAdd);
         EditText editValue = (EditText) findViewById(R.id.editValue);
@@ -69,10 +87,9 @@ public class DiceActivity extends AppCompatActivity {
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonRoll.setBackgroundColor(getResources().getColor(R.color.yellow_pastel));
+                //buttonRoll.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.yellow_pastel), PorterDuff.Mode.MULTIPLY);
                 int value = Integer.parseInt((String) editValue.getText().toString());
-                diceSize = value;
-                buttonRoll.setText("Roll "+value);
+                addDice(getResources().getColor(R.color.yellow_pastel),value);
             }
         });
 
@@ -84,8 +101,8 @@ public class DiceActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Dice Rolled!", Toast.LENGTH_SHORT).show();
 
                 //Affichage du résultat du dé
-                if (diceSize == 0 ) resultDiceText.setText("0");
-                else  resultDiceText.setText(Integer.toString(rollDice(diceSize)));
+                if (nbDice == 0 ) resultDiceText.setText("0");
+                else  rollAll();
             }
         });
 
@@ -93,26 +110,87 @@ public class DiceActivity extends AppCompatActivity {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Toast= petite pop up de texte
-                    //Toast.makeText(getApplicationContext(), "Dice value changed to "+b.getText(), Toast.LENGTH_SHORT).show();
 
-                    //Je change la couleur du dé roll par la couleur du dé sur lequel on a appuyé
-                    buttonRoll.setBackgroundColor(listCol.get(listBut.indexOf(b)));
+                    //buttonRoll.getBackground().setColorFilter(listCol.get(2), PorterDuff.Mode.MULTIPLY);
 
-                    //Je change la valeur max du dé qui peut être roll
-                    diceSize = Integer.parseInt((String) b.getText());
-                    buttonRoll.setText("Roll "+b.getText());
+                    addDice(listCol.get(listBut.indexOf(b)), Integer.parseInt((String) b.getText()));
                 }
             });
         }
 
+        for ( Dice d : listDice ) {
+            d.getButton().setVisibility(View.INVISIBLE);
+            d.getButton().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    d.rollDice();
+                    refreshResult();
+                }
+            });
+        }
 
+        bReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Dice d : listDice) {
+                    d.reset();
+                    nbDice=0;
+                }
+                resultDiceText.setText("0");
+            }
+        });
+    }
+
+    private void addDice(String s) {
+        if (nbDice < maxDice) {
+            Dice d = listDice.get(nbDice);
+            d.getButton().setVisibility(View.VISIBLE);
+            d.getButton().setText(s);
+
+        }
+        nbDice++;
+    }
+
+    //Précision de la couleur
+    private void addDice(Integer color, int maxValue) {
+        if (nbDice < maxDice) {
+            Dice d = listDice.get(nbDice);
+            d.setMaxValue(maxValue);
+            d.getButton().setVisibility(View.VISIBLE);
+            d.getButton().getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+            d.rollDice();
+            refreshResult();
+        }
+        nbDice++;
     }
 
     private int rollDice(int size){
         Random rng = new Random();
         return rng.nextInt(size)+1;
     }
+
+    private void rollAll(){
+        int i=0;
+        for (Dice d : listDice){
+            if (d.isVisible()){
+                i += d.rollDice();
+            }
+        }
+        TextView resultDiceText = findViewById(R.id.result);
+        resultDiceText.setText(Integer.toString(i));
+    }
+
+    private void refreshResult(){
+        int i=0;
+        for (Dice d : listDice){
+            if (d.isVisible()){
+                i += d.getValue();
+            }
+        }
+        TextView resultDiceText = findViewById(R.id.result);
+        resultDiceText.setText(Integer.toString(i));
+    }
+
 
     private void create_listButt(){
         listBut = new ArrayList<Button>();
@@ -123,8 +201,15 @@ public class DiceActivity extends AppCompatActivity {
         listBut.add((Button) findViewById(R.id.button20));
         listBut.add((Button) findViewById(R.id.button100));
 
-        listCol= new ArrayList<Integer>();
+        listDice = new ArrayList<>();
+        listDice.add(new Dice(findViewById(R.id.b1)));
+        listDice.add(new Dice(findViewById(R.id.b2)));
+        listDice.add(new Dice(findViewById(R.id.b3)));
+        listDice.add(new Dice(findViewById(R.id.b4)));
+        listDice.add(new Dice(findViewById(R.id.b5)));
+        listDice.add(new Dice(findViewById(R.id.b6)));
 
+        listCol= new ArrayList<Integer>();
         listCol.add(getResources().getColor(R.color.purple_pastel));
         listCol.add(getResources().getColor(R.color.pink_pastel));
         listCol.add(getResources().getColor(R.color.orange_pastel));
