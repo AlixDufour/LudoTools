@@ -125,14 +125,15 @@
 
         <Button
             android:id="@+id/StartDice"
-            android:layout_width="196dp"
+            android:layout_width="210dp"
             android:layout_height="75dp"
             android:layout_above="@+id/LinearButton"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="52dp"
             android:layout_marginBottom="20dp"
+            android:layout_alignParentEnd="true"
             android:backgroundTint="@color/pink_pastel"
             android:text="@string/roll"
             android:textSize="20sp"
@@ -148,7 +149,7 @@
             android:layout_toLeftOf="@+id/StartDice"
             android:layout_alignParentStart="true"
             android:backgroundTint="@color/red_pastel"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="32dp"
             android:layout_marginEnd="4dp"
             android:text="@string/reset"
             />

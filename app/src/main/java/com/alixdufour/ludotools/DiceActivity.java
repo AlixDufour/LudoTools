@@ -27,7 +27,9 @@ import androidx.core.content.ContextCompat;
 import com.alixdufour.ludotools.objects.Dice;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Random;
 
@@ -127,6 +129,17 @@ public class DiceActivity extends AppCompatActivity {
                     refreshResult();
                 }
             });
+
+            d.getButton().setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    d.reset();
+                    refreshVisibleDice();
+                    nbDice=getNbDice();
+                    refreshResult();
+                    return true;
+                }
+            });
         }
 
         bReset.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +171,7 @@ public class DiceActivity extends AppCompatActivity {
             d.setMaxValue(maxValue);
             d.getButton().setVisibility(View.VISIBLE);
             d.getButton().getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+            d.setColor(color);
             d.rollDice();
             refreshResult();
         }
@@ -191,6 +205,25 @@ public class DiceActivity extends AppCompatActivity {
         resultDiceText.setText(Integer.toString(i));
     }
 
+    private void refreshVisibleDice() {
+        ListIterator<Dice> i = listDice.listIterator();
+        while(i.hasNext()){
+            Dice d = i.next();
+                if (!d.isVisible() && i.hasNext()){
+                    d.copyDice(listDice.get(i.nextIndex()));
+                    d.getButton().getBackground().setColorFilter(getColorFromNumber(d.getMaxValue()), PorterDuff.Mode.MULTIPLY);
+                    listDice.get(i.nextIndex()).reset();
+                }
+        }
+    }
+
+    private int getNbDice(){
+        int i =0;
+        for (Dice d : listDice) {
+            if (d.isVisible()) i++;
+        }
+        return i;
+    }
 
     private void create_listButt(){
         listBut = new ArrayList<Button>();
@@ -216,6 +249,17 @@ public class DiceActivity extends AppCompatActivity {
         listCol.add(getResources().getColor(R.color.green_pastel));
         listCol.add(getResources().getColor(R.color.blue_pastel));
         listCol.add(getResources().getColor(R.color.purple_500));
+        listCol.add(getResources().getColor(R.color.yellow_pastel));
 
+    }
+
+    public Integer getColorFromNumber(int i){
+        if (i==2) return listCol.get(0);
+        if (i==4) return listCol.get(1);
+        if (i==6) return listCol.get(2);
+        if (i==10) return listCol.get(3);
+        if (i==20) return listCol.get(4);
+        if (i==100) return listCol.get(5);
+        else return listCol.get(6);
     }
 }

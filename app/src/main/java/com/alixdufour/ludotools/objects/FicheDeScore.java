@@ -15,6 +15,7 @@ public class FicheDeScore {
 
 }
 
+
 class CategoriePoints {
     private String name;
     private int score;

@@ -1,5 +1,6 @@
 package com.alixdufour.ludotools.objects;
 
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.Button;
 
@@ -9,6 +10,7 @@ public class Dice {
     private Button button;
     private int maxValue;
     private int value;
+    private Integer color;
 
     public Dice(Button b, int max){
         button = b;
@@ -23,12 +25,25 @@ public class Dice {
         value=0;
     }
 
+    public Integer getColor() {
+        return color;
+    }
+
+    public void setColor(Integer color) {
+        this.color = color;
+    }
+
     public Button getButton() {
         return button;
     }
 
     public int getValue() {
         return value;
+    }
+
+    public void setValueToDice(int value){
+        setValue(value);
+        addValueToButton();
     }
 
     public void setValue(int actuelValue) {
@@ -48,10 +63,15 @@ public class Dice {
         return false;
     }
 
+    public void setVisibility(int visibility) {
+        button.setVisibility(visibility);
+    }
+
     public void reset(){
         maxValue=0;
         value=0;
         addValueToButton();
+        color = null;
         button.setVisibility(View.INVISIBLE);
     }
 
@@ -60,6 +80,13 @@ public class Dice {
         value = rng.nextInt(maxValue)+1;
         addValueToButton();
         return value;
+    }
+
+    public void copyDice(Dice d) {
+        button.setVisibility(d.getButton().getVisibility());
+        setValueToDice(d.getValue());
+        setMaxValue(d.getMaxValue());
+        //button.getBackground().setColorFilter(d.getColor(), PorterDuff.Mode.MULTIPLY);
     }
 
     private void addValueToButton(){
