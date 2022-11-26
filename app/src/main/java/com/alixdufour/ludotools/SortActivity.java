@@ -1,5 +1,6 @@
 package com.alixdufour.ludotools;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -72,6 +73,11 @@ public class SortActivity extends AppCompatActivity {
                 TextView groupEntered = findViewById(R.id.Group);
                 nbGroupes = Integer.parseInt(groupEntered.getText().toString());
                 groupEntered.setText(nbGroupes.toString());
+                CharSequence text = "Nombre de groupe défini à " + nbGroupes;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                toast.show();
             }
         });
 
