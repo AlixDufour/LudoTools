@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-    Button b1, b2, b3, b4;
+    Button b1, b2, b3, b4, b5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.bChrono);
         b3 = (Button) findViewById(R.id.bQuiz);
         b4 = (Button) findViewById(R.id.bJoueur);
+        b5 = (Button) findViewById(R.id.bFichesScore);
 
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, SortActivity.class);
+                startActivity(i);
+            }
+        });
+
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, FichesDeScoreActivity.class);
                 startActivity(i);
             }
         });
