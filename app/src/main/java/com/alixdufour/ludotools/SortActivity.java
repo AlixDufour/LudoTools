@@ -55,10 +55,22 @@ public class SortActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TextView nameEntered = findViewById(R.id.Name);
                 String name = nameEntered.getText().toString();
-                player.add(name);
+                int lenght = player.size();
+
+                if(lenght < 10){
+                    player.add(name);
+                    lenght += 1;
+                }
+                else {
+                    CharSequence text = "Impossible de rentrer plus de 10 joueurs pour le moment";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                    toast.show();
+                }
+
                 TextView nameList = findViewById(R.id.ListNames);
                 String text = "";
-                int lenght = player.size();
                 for (int i = 0; i < lenght; i++) {
                     text += (i+1) + "- " + player.get(i) + "\n";
                 }
@@ -117,6 +129,10 @@ public class SortActivity extends AppCompatActivity {
                         }
                         indice.add(i1);
                         text += (i+1) + "- " + player.get(i1) + "\n";
+                    }
+
+                    if(nbGroupes != lenght){
+                        text += "------------------------ \n";
                     }
                 }
 
