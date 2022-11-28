@@ -135,7 +135,7 @@
             android:layout_marginBottom="20dp"
             android:layout_alignParentEnd="true"
             android:backgroundTint="@color/pink_pastel"
-            android:text="@string/roll"
+            android:text="Lancer"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck" />
 
@@ -226,8 +226,8 @@
         android:layout_height="72dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="12dp"
         >
 
@@ -235,7 +235,7 @@
             android:id="@+id/editValue"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="@string/custom_value"
+            android:hint="Personnalisé"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:inputType="number"
@@ -247,12 +247,13 @@
 
         <Button
             android:id="@+id/bAdd"
-            android:layout_width="0dp"
+            android:layout_width="8dp"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
-            android:layout_weight="100"
+            android:layout_weight="1"
             android:backgroundTint="@color/yellow_pastel"
-            android:text="@string/add">
+            android:textSize="32sp"
+            android:text="+">
         </Button>
     </LinearLayout>
 
