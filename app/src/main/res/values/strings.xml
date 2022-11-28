@@ -23,4 +23,11 @@
     <string name="add">Add</string>
     <string name="custom_value">Custom value</string>
     <string name="name">Name</string>
+    <string name="demarrer">démarrer</string>
+    <string name="arreter">arrêter</string>
+    <string name="sablier">SABLIER</string>
+    <string name="supprimer">supprimer</string>
+    <string name="ajouter">ajouter</string>
+    <string name="retourner">retourner</string>
+    <string name="joueur">joueur</string>
 </resources>

@@ -26,6 +26,14 @@
             android:orientation="horizontal"
             >
             <Button
+                android:id="@+id/bAdd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/ajouter"
+                android:backgroundTint="@color/blue_pastel"/>
+
+            <Button
                 android:id="@+id/bSupp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -34,14 +42,6 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_700"/>
-
-            <Button
-                android:id="@+id/bAdd"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/ajouter"
-                android:backgroundTint="@color/blue_pastel"/>
 
         </LinearLayout>
 

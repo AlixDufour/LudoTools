@@ -159,10 +159,6 @@ public class HourglassActivity extends AppCompatActivity {
                     basSablier.setBase(SystemClock.elapsedRealtime() - hautSablierTime);
                     basSablier.start();
                     hautSablier.start();
-                    /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        hautSablier.setCountDown(flipped);
-                        basSablier.setCountDown(!flipped);
-                    }*/
                 }
             }
         });
