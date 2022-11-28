@@ -91,7 +91,7 @@
                 android:paddingEnd="32dp"
                 android:paddingStart="32dp"
                 android:drawableStart="@drawable/baseline_people_white_48"
-                android:text="Joueurs" />
+                android:text="Groupes joueurs" />
         </LinearLayout>
 
 

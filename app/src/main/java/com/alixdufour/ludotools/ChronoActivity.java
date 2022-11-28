@@ -191,7 +191,6 @@ public class ChronoActivity extends AppCompatActivity {
         });
 
         hourglass.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ChronoActivity.this, HourglassActivity.class);
