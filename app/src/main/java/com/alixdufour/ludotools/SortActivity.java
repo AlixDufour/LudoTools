@@ -1,5 +1,6 @@
 package com.alixdufour.ludotools;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -21,7 +22,10 @@ public class SortActivity extends AppCompatActivity {
 
     Button buttonAdd;
     Button buttonSort;
+    Button buttonRemove;
+    Button buttonGroup;
     List player = new ArrayList();
+    Integer nbGroupes = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +47,49 @@ public class SortActivity extends AppCompatActivity {
 
         buttonAdd = (Button) findViewById(R.id.AddButton);
         buttonSort = (Button) findViewById(R.id.SortButton);
+        buttonRemove = (Button) findViewById(R.id.RemoveButton);
+        buttonGroup = (Button) findViewById(R.id.GroupButton);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView nameEntered = findViewById(R.id.Name);
                 String name = nameEntered.getText().toString();
-                player.add(name);
+                int lenght = player.size();
+
+                if(lenght < 10){
+                    player.add(name);
+                    lenght += 1;
+                }
+                else {
+                    CharSequence text = "Impossible de rentrer plus de 10 joueurs pour le moment";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                    toast.show();
+                }
+
                 TextView nameList = findViewById(R.id.ListNames);
                 String text = "";
-                int lenght = player.size();
                 for (int i = 0; i < lenght; i++) {
                     text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
-                nameEntered.setText("");
+                nameEntered.setText("Joueur " + (lenght + 1));
+            }
+        });
+
+        buttonGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView groupEntered = findViewById(R.id.Group);
+                nbGroupes = Integer.parseInt(groupEntered.getText().toString());
+                groupEntered.setText(nbGroupes.toString());
+                CharSequence text = "Nombre de groupe défini à " + nbGroupes;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                toast.show();
             }
         });
 
@@ -68,7 +100,7 @@ public class SortActivity extends AppCompatActivity {
                 String text = "";
                 int lenght = player.size();
                 List indice = new ArrayList();
-                for (int i = 0; i < lenght; i++) {
+                /*for (int i = 0; i < lenght; i++) {
                     Random rng = new Random();
                     int i1 = rng.nextInt(lenght);
                     while (indice.contains(i1)){
@@ -76,8 +108,52 @@ public class SortActivity extends AppCompatActivity {
                     }
                     indice.add(i1);
                     text += (i+1) + "- " + player.get(i1) + "\n";
+                }*/
+                if (nbGroupes <= 1){
+                    nbGroupes = lenght;
+                }
+                int alpha = lenght / nbGroupes;
+                int beta = lenght % nbGroupes;
+                int gamma;
+                for(int i=0; i < nbGroupes; i++){
+                    if(i < beta){
+                        gamma = alpha + 1;
+                    }else {
+                        gamma = alpha;
+                    }
+                    for(int j=0; j < gamma; j++){
+                        Random rng = new Random();
+                        int i1 = rng.nextInt(lenght);
+                        while (indice.contains(i1)){
+                            i1 = rng.nextInt(lenght);
+                        }
+                        indice.add(i1);
+                        text += (i+1) + "- " + player.get(i1) + "\n";
+                    }
+
+                    if(nbGroupes != lenght){
+                        text += "------------------------ \n";
+                    }
+                }
+
+                nameList.setText(text);
+            }
+        });
+
+        buttonRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView nameEntered = findViewById(R.id.Name);
+                TextView nameList = findViewById(R.id.ListNames);
+                String text = "";
+                int lenght = player.size();
+                player.remove(lenght - 1);
+                lenght = player.size();
+                for (int i = 0; i < lenght; i++) {
+                    text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
+                nameEntered.setText("Joueur " + (lenght + 1));
             }
         });
     }
