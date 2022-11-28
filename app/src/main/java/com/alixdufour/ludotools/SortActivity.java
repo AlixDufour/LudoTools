@@ -55,6 +55,7 @@ public class SortActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TextView nameEntered = findViewById(R.id.Name);
                 String name = nameEntered.getText().toString();
+                if (name.isEmpty()) name= "Joueur "+ Integer.toString(player.size()+1);
                 int lenght = player.size();
 
                 if(lenght < 10){
@@ -62,7 +63,7 @@ public class SortActivity extends AppCompatActivity {
                     lenght += 1;
                 }
                 else {
-                    CharSequence text = "Impossible de rentrer plus de 10 joueurs pour le moment";
+                    CharSequence text = "10 joueurs maximum";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(getApplicationContext(), text, duration);
@@ -75,7 +76,8 @@ public class SortActivity extends AppCompatActivity {
                     text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
-                nameEntered.setText("Joueur " + (lenght + 1));
+                nameEntered.setText("");
+                nameEntered.setHint("Joueur " + (lenght + 1));
             }
         });
 
@@ -83,13 +85,16 @@ public class SortActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView groupEntered = findViewById(R.id.Group);
-                nbGroupes = Integer.parseInt(groupEntered.getText().toString());
-                groupEntered.setText(nbGroupes.toString());
+                String s = groupEntered.getText().toString();
+                if (s.isEmpty()) nbGroupes=1;
+                else nbGroupes = Integer.parseInt(s);
+                groupEntered.setHint(nbGroupes.toString());
+                groupEntered.setText("");
                 CharSequence text = "Nombre de groupe défini à " + nbGroupes;
-                int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
                 toast.show();
+
             }
         });
 
@@ -97,6 +102,10 @@ public class SortActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView nameList = findViewById(R.id.ListNames);
+                if (nameList.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Aucun joueur", Toast.LENGTH_SHORT).show();
+                   return;
+                }
                 String text = "";
                 int lenght = player.size();
                 List indice = new ArrayList();
@@ -153,7 +162,8 @@ public class SortActivity extends AppCompatActivity {
                     text += (i+1) + "- " + player.get(i) + "\n";
                 }
                 nameList.setText(text);
-                nameEntered.setText("Joueur " + (lenght + 1));
+                nameEntered.setText("");
+                nameEntered.setHint("Joueur " + (lenght + 1));
             }
         });
     }
