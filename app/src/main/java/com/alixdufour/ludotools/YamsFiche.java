@@ -40,10 +40,9 @@ public class YamsFiche extends AppCompatActivity {
         nameList = bundle.getStringArrayList("namesList");
 
         TextView textTest = (TextView) findViewById(R.id.textTest);
-        String s = "Il y a "+nbJoueurs+" joueurs : ";
-        nameList.add(0, "_id");
+        String s = "Fiche de score pour le YAMS en travaux. \n Il y a "+nbJoueurs+" joueurs : ";
         for (String name : nameList){
-            s= s.concat(" " + name);
+            s= s.concat(" \n" + name);
         }
         textTest.setText(s);
 
