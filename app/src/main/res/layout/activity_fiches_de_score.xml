@@ -20,30 +20,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             >
             <Button
+                android:id="@+id/bSupp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Ajouter"
+                android:paddingVertical="16dp"
+                android:text="@string/supprimer"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/pink_pastel"/>
+                android:backgroundTint="@color/purple_700"/>
 
             <Button
+                android:id="@+id/bAdd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Supprimer"
-                android:backgroundTint="@color/purple_pastel"/>
+                android:text="@string/ajouter"
+                android:backgroundTint="@color/blue_pastel"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearListPlayer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/linearButtTop"
             android:layout_above="@id/textFiches"
+            android:gravity="center"
             android:orientation="vertical">
 
         </LinearLayout>
@@ -53,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginTop="12dp"
             android:layout_above="@id/botLinearLayout"
             android:text="Choisissez la fiche de score souhaitée :"
             android:textColor="@color/black"/>
@@ -65,7 +74,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="36dp"
             android:layout_alignParentBottom="true">
 
             <Spinner
@@ -78,6 +87,7 @@
                 android:theme="@style/PopupMenu" />
 
             <Button
+                android:id="@+id/bChoisir"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:drawable/editbox_background"

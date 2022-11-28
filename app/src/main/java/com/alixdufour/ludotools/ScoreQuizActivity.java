@@ -24,6 +24,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
     quizPlayerBar[] tab = new quizPlayerBar[max_nb_players];
     View[] savedViews = new View[max_nb_players];
     int nb_players = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

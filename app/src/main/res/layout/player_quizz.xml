@@ -23,9 +23,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="-165dp"
         android:hint="Joueur 1"
-        android:textColor="@android:color/tab_indicator_text"
         android:textSize="30sp"
         android:minWidth="48dp"
+        android:maxLength="9"
         android:layout_alignEnd="@id/score1"
         android:gravity="center"
         />
