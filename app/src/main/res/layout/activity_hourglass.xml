@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChronoActivity">
+    tools:context=".HourglassActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,12 +32,11 @@
                 android:id="@+id/titre"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:text="@string/chrono"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/sablier"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:textColor="@android:color/holo_purple"
                 android:shadowColor="@color/black"
                 android:shadowDx="1.5"
@@ -45,90 +44,12 @@
                 android:shadowRadius="1.6"
                 />
 
-            <Button
-                android:id="@+id/startButton"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/green_pastel"
-                android:text="@string/demarrer"
-                android:textSize="20sp"
-                />
-
-            <Button
-                android:id="@+id/stopButton"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/red_pastel"
-                android:text="@string/arreter"
-                android:textSize="20sp"
-                />
-
-            <Button
-                android:id="@+id/restartButton"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/blue_pastel"
-                android:text="@string/reset"
-                android:textSize="20sp"
-                />
-
-            <LinearLayout
-                android:id="@+id/LinearButton"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
-                <Button
-                    android:id="@+id/countingButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/orange_pastel"
-                    android:layout_marginEnd="5dp"
-                    android:text="@string/chrono"
-                    android:layout_weight="1"
-                    android:textSize="18sp"
-                    />
-
-                <Button
-                    android:id="@+id/decountingButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/orange_pastel"
-                    android:layout_marginStart="5dp"
-                    android:text="@string/timer1"
-                    android:layout_weight="1"
-                    android:textSize="18sp"
-                    />
-
-                <Button
-                    android:id="@+id/hourglassButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/orange_pastel"
-                    android:layout_marginStart="5dp"
-                    android:text="@string/sablier"
-                    android:layout_weight="1"
-                    android:textSize="18sp"
-                    />
-            </LinearLayout>
-
-            <Chronometer
-                android:id="@+id/simpleChronometer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/tab_indicator_text"
-                android:textSize="60sp"
-                />
             <RelativeLayout
                 android:id="@+id/LinearEditText"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:orientation="horizontal"
-                android:layout_margin="10dp"
+
                 >
                 <EditText
                     android:id="@+id/startMinute"
@@ -168,6 +89,62 @@
                     android:layout_marginStart="10dp"
                     />
             </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearButton"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="30dp"
+                >
+
+                <Button
+                    android:id="@+id/startButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/green_pastel"
+                    android:text="@string/demarrer"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/restartButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red_pastel"
+                    android:text="@string/reset"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Chronometer
+                android:id="@+id/hautSablier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/blue_pastel"
+                android:textSize="60sp"
+                />
+
+            <Button
+                android:id="@+id/flipButton"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/blue_pastel"
+                android:text="@string/retourner"
+                android:textSize="20sp"
+                />
+
+            <Chronometer
+                android:id="@+id/basSablier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange_pastel"
+                android:textSize="35sp"/>
+                <!--android:textColor="@android:color/tab_indicator_text"-->
 
         </LinearLayout>
     </LinearLayout>
