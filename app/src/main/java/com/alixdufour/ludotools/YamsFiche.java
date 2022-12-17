@@ -26,6 +26,7 @@ public class YamsFiche extends AppCompatActivity {
         TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
         toolbar_text.setText("Fiche de score");
         ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+        ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
 
         toolbar_back.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,7 +33,6 @@ public class ChronoActivity extends AppCompatActivity {
         TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
         toolbar_text.setText("Gestion du temps");
         ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
-
         toolbar_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +40,7 @@ public class ChronoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
 
         // initiate views
         chronometer = (Chronometer) findViewById(R.id.simpleChronometer);

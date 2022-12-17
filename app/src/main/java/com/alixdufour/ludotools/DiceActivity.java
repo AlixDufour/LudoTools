@@ -59,6 +59,7 @@ public class DiceActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
 
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);

@@ -45,6 +45,7 @@ public class FichesDeScoreActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
 
         Spinner dropdown = findViewById(R.id.spinner);
 

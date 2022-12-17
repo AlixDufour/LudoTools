@@ -19,6 +19,7 @@
             android:id="@+id/back_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:backgroundTint="#00FFFFFF"
             android:src="@drawable/ic_back" />
 
@@ -30,6 +31,25 @@
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             tools:text="Test Nom" />
+
+        <ImageButton
+            android:id="@+id/param_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#00FFFFFF"
+            android:layout_toLeftOf="@+id/info_toolbar"
+            android:visibility="invisible"
+            android:src="@drawable/baseline_settings_white_36" />
+
+        <ImageButton
+            android:id="@+id/info_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#00FFFFFF"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/baseline_help_outline_white_36" />
 
     </RelativeLayout>
 

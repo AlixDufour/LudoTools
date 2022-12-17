@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,9 @@ public class ScoreQuizActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         TextView toolbar_text = (TextView) findViewById(R.id.text_toolbar);
         toolbar_text.setText("Score Quizz");
+        toolbar_text.setPadding(0,0,80,0);
         ImageButton toolbar_back = (ImageButton) findViewById(R.id.back_toolbar);
+        ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
 
         toolbar_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +45,9 @@ public class ScoreQuizActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        ImageButton param = (ImageButton) findViewById(R.id.param_toolbar);
+        param.setVisibility(View.VISIBLE);
 
         addPlayerButton = (Button) findViewById(id.addPlayer);
         removePlayerButton = (Button) findViewById(id.removePlayer);
