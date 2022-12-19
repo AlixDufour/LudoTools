@@ -92,6 +92,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
                 });
 
 
+
                 builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
