@@ -143,9 +143,27 @@ public class ScoreQuizActivity extends AppCompatActivity {
             View view = inflater.inflate(R.layout.player_quizz, null);
             LinearLayout container = (LinearLayout) findViewById(id.linearLayout);
             container.addView(view);
+            int player = nb_players - 1;
             tab[nb_players - 1] = new quizPlayerBar(view);
-            tab[nb_players - 1].setOnClickIncreaseButton(var);
-            tab[nb_players - 1].setOnClickReduceButton(var);
+            tab[nb_players - 1].increaseButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (tab[player].valueScore < 100 - var) {
+                        System.out.println("var = " + var);
+                        tab[player].valueScore += var;
+                        tab[player].scoreText.setText(Integer.toString(tab[player].valueScore));
+                    }
+                }
+            });
+            tab[nb_players - 1].reduceButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (tab[player].valueScore >= 0 + var) {
+                        tab[player].valueScore -= var;
+                        tab[player].scoreText.setText(Integer.toString(tab[player].valueScore));
+                    }
+                }
+            });;
             tab[nb_players - 1].setPlayerNameHint(nb_players);
 
             savedViews[nb_players - 1] = view;
