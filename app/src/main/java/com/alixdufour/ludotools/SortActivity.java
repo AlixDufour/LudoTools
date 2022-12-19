@@ -1,9 +1,10 @@
 package com.alixdufour.ludotools;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,22 @@ public class SortActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        toolbar_info.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(SortActivity.this).create();
+                alertDialog.setTitle("Comment trier des joueurs ?");
+                alertDialog.setMessage("Cette section permet de gérer des joueurs.\n\nVous pouvez en ajouter en leur donnant un pseudo ou en laissant Joueur X puis en appuyant sur +. Vous pouvez supprimer le dernier joueur ajouté en appuyant sur -. \n\nVous pouvez définir le nombre de groupe à former en indiquant un nombre et en appuyant surchanger. \n\nEn appuyant sur Mélanger, un ordre de jeu sera créé et des groupes formés.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        }));
 
         buttonAdd = (Button) findViewById(R.id.AddButton);
         buttonSort = (Button) findViewById(R.id.SortButton);

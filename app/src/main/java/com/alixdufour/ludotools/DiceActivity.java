@@ -1,6 +1,8 @@
 package com.alixdufour.ludotools;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -60,6 +62,22 @@ public class DiceActivity extends AppCompatActivity {
             }
         });
         ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
+
+        toolbar_info.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(DiceActivity.this).create();
+                alertDialog.setTitle("Comment lancer des dés ?");
+                alertDialog.setMessage("Cette section permet de lancer de 1 à 6 dés.\n\nVous pouvez en ajouter un en appuyant sur la valeur du dé que vous souhaitez ou en rentrant une valeur à la place de \"Personnalisé\" et en appuyant sur +. \n\nEn appuyant sur lancer, tous les dès seront relancés. Vous pouvez lire la valeur d'un dé sur l'icone qui le représente ou l'addition de la valeur des dés au centre de l'écran. \n\nVous pouvez également ne relancer qu'un dé en appuyant légèrement sur celui-ci. En appuyant longuement, vous avez la possibilité de le supprimer. \n\nLe bouton \"Reset\" vous permettra de supprimer tous les dés.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        }));
 
         create_listButt();
         Button buttonRoll  = (Button) findViewById(R.id.StartDice);

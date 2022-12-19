@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -43,6 +45,22 @@ public class HourglassActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        toolbar_info.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(HourglassActivity.this).create();
+                alertDialog.setTitle("Comment utiliser le sablier ?");
+                alertDialog.setMessage("Cette section permet de gérer le sablier.\n\nLa durée du sablier est d'une seconde par défaut mais vous pouvez la remplacer par la valeur de votre choix\n\nEn appuyant sur DEMARRER, le compteur bleu commencera à diminuer et le compteur orange à augmenter. En appuyant sur RETOURNER, les deux compteur s'inverseront et celui situé en haut diminuera tandis que l'autre augmentera. \n\n Le bouton RESET arrête le décompte et remet le compteur à la valeur définie.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        }));
 
         // initiate views
         hautSablier = (Chronometer) findViewById(R.id.hautSablier);

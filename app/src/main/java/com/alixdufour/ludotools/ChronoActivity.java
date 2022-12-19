@@ -2,6 +2,8 @@ package com.alixdufour.ludotools;
 
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,6 +43,22 @@ public class ChronoActivity extends AppCompatActivity {
             }
         });
         ImageButton toolbar_info = (ImageButton) findViewById(R.id.info_toolbar);
+
+        toolbar_info.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(ChronoActivity.this).create();
+                alertDialog.setTitle("Comment utiliser la gestion du temps ?");
+                alertDialog.setMessage("Cette section permet de gérer le temps.\n\nIl existe trois modes, le mode chrono qui va augmenter le compteur, le mode timer qui va le diminuer jusqu'à atteindre 0 et le mode sablier qui fera les deux en même temps. \n\nEn appuyant sur DEMARRER, vous commencerez le compte, ARRETER le mettra en pause et RESET permettra de remettre le compteur à 0 ou à la valeur que vous aurez rentré. \n\nVous pouvez rentrer une valeur à la place de mm:ss afin de définir cette valeur par défaut. Il est essentielle de la définir pour utiliser le timer.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        }));
 
         // initiate views
         chronometer = (Chronometer) findViewById(R.id.simpleChronometer);

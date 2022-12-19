@@ -5,7 +5,9 @@ import static com.alixdufour.ludotools.R.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -45,6 +47,22 @@ public class ScoreQuizActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        toolbar_info.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(ScoreQuizActivity.this).create();
+                alertDialog.setTitle("Comment fonctionne Score Quizz ?");
+                alertDialog.setMessage("Cette section permet de gérer les scores des joueurs simplement.\n\nVous pouvez ajouter un joueur en appuyant sur AJOUTER et supprimer le dernier en appuyant sur SUPPRIMER. \n\nVous pouvez changer le nom d'un joueur et lui ajouter ou lui enlever des points en cliquant sur les boutons vert et rouge. Le score total est affiché à gauche du pseudo. \n\nA l'aide de l'icone à côté du ? vous pouvez régler le nombre de points ajoutés et soustraits à chaque fois.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        }));
 
         ImageButton param = (ImageButton) findViewById(R.id.param_toolbar);
         param.setVisibility(View.VISIBLE);
