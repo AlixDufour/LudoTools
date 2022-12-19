@@ -27,6 +27,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
     quizPlayerBar[] tab = new quizPlayerBar[max_nb_players];
     View[] savedViews = new View[max_nb_players];
     int nb_players = 0;
+    int var = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,40 @@ public class ScoreQuizActivity extends AppCompatActivity {
         ImageButton param = (ImageButton) findViewById(R.id.param_toolbar);
         param.setVisibility(View.VISIBLE);
 
+        param.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ScoreQuizActivity.this);
+                final EditText input = new EditText(ScoreQuizActivity.this);
+                String varText = String.valueOf(var);
+                input.setText(varText);
+                builder.setView(input);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String text = input.getText().toString();
+                        //Traitement texte
+                        var = Integer.parseInt(text);
+                        System.out.println(var);
+                        dialog.dismiss();
+                    }
+                });
+
+
+                builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+            }
+        });
+
         addPlayerButton = (Button) findViewById(id.addPlayer);
         removePlayerButton = (Button) findViewById(id.removePlayer);
 
@@ -100,6 +135,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
     }
 
     private void addPlayerToView(){
+        System.out.println(("ici var = " + var));
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         if(nb_players < max_nb_players) {
@@ -108,8 +144,8 @@ public class ScoreQuizActivity extends AppCompatActivity {
             LinearLayout container = (LinearLayout) findViewById(id.linearLayout);
             container.addView(view);
             tab[nb_players - 1] = new quizPlayerBar(view);
-            tab[nb_players - 1].setOnClickIncreaseButton();
-            tab[nb_players - 1].setOnClickReduceButton();
+            tab[nb_players - 1].setOnClickIncreaseButton(var);
+            tab[nb_players - 1].setOnClickReduceButton(var);
             tab[nb_players - 1].setPlayerNameHint(nb_players);
 
             savedViews[nb_players - 1] = view;

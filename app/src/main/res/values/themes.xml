@@ -18,7 +18,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
-        <item name="android:alertDialogTheme">@style/AlertDialogText</item>
 
     </style>
 
@@ -27,7 +26,4 @@
         <item name="android:backgroundTint"> @color/purple_pastel</item>
     </style>
 
-    <style name="AlertDialogText">
-        <item name="android:textColor">@color/blue_pastel</item>
-    </style>
 </resources>

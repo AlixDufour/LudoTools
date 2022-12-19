@@ -27,24 +27,25 @@ public class quizPlayerBar {
        valueScore = 0;
     }
 
-    public void setOnClickIncreaseButton() {
+    public void setOnClickIncreaseButton(int var) {
         this.increaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (valueScore < 99) {
-                    valueScore += 1;
+                if (valueScore < 100 - var) {
+                    System.out.println("var = " + var);
+                    valueScore += var;
                     scoreText.setText(Integer.toString(valueScore));
                 }
             }
         });
     }
 
-    public void setOnClickReduceButton() {
+    public void setOnClickReduceButton(int var) {
         this.reduceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (valueScore > 0) {
-                    valueScore -= 1;
+                if (valueScore >= 0 + var) {
+                    valueScore -= var;
                     scoreText.setText(Integer.toString(valueScore));
                 }
             }
