@@ -11,17 +11,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <TableLayout
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/tablelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:stretchColumns="*">
+
+        </TableLayout>
 
         <TextView
-            android:id="@+id/textTest"
+            android:id="@+id/textScore"
+            android:layout_below="@+id/tablelayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
-            android:textColor="@color/black"
-            android:text="test"/>
+            android:layout_margin="12dp"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/buttonCalcul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="Calculer"
+            android:backgroundTint="@color/purple_pastel"/>
 
 
     </RelativeLayout>

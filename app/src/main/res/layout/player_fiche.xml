@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:hint="@string/joueur"
-        android:maxLength="12"
+        android:maxLength="6"
         android:textSize="30sp"
         android:minWidth="48dp"
         />

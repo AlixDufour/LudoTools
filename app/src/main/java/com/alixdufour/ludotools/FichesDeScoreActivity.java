@@ -23,7 +23,7 @@ import java.util.List;
 
 public class FichesDeScoreActivity extends AppCompatActivity {
 
-    final int max_nb_players = 6;
+    final int max_nb_players = 5;
     EditText[] tab = new EditText[max_nb_players];
     View[] savedViews = new View[max_nb_players];
     int nb_players = 0;
@@ -49,7 +49,7 @@ public class FichesDeScoreActivity extends AppCompatActivity {
 
         Spinner dropdown = findViewById(R.id.spinner);
 
-        String[] nomsFiches = new String[]{"Yams", "Belote", "Personnalisée"};
+        String[] nomsFiches = new String[]{"5 manches", "10 manches", "Yams", "Belote"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nomsFiches);
         dropdown.setAdapter(adapter);
 
