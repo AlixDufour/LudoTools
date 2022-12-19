@@ -28,6 +28,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
     View[] savedViews = new View[max_nb_players];
     int nb_players = 0;
     int var = 1;
+    Button add1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
                 String varText = String.valueOf(var);
                 input.setText(varText);
                 builder.setView(input);
+                builder.setTitle("Choisissez de combien augmenter et diminuer le score :");
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
                     @Override
@@ -83,6 +85,7 @@ public class ScoreQuizActivity extends AppCompatActivity {
                         String text = input.getText().toString();
                         //Traitement texte
                         var = Integer.parseInt(text);
+                        setButtonText(var);
                         System.out.println(var);
                         dialog.dismiss();
                     }
@@ -145,6 +148,8 @@ public class ScoreQuizActivity extends AppCompatActivity {
             container.addView(view);
             int player = nb_players - 1;
             tab[nb_players - 1] = new quizPlayerBar(view);
+            tab[nb_players - 1].increaseButton.setText("+" + var);
+            tab[nb_players - 1].reduceButton.setText("-" + var);
             tab[nb_players - 1].increaseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -169,5 +174,12 @@ public class ScoreQuizActivity extends AppCompatActivity {
             savedViews[nb_players - 1] = view;
         }
 
+    }
+
+    public void setButtonText(int var){
+        for(int i=0; i < nb_players; i++){
+            tab[i].increaseButton.setText("+" + var);
+            tab[i].reduceButton.setText("-" + var);
+        }
     }
 }
